@@ -1,3 +1,5 @@
+import secrets
+
 __all__ = [
     'Dropbox',
     'DropboxTeam',
@@ -11,7 +13,6 @@ __version__ = '0.0.0'
 import contextlib
 import json
 import logging
-import random
 import time
 
 import requests
@@ -367,7 +368,7 @@ class _DropboxTransport(object):
                 attempt += 1
                 if attempt <= self._max_retries_on_error:
                     # Use exponential backoff
-                    backoff = 2**attempt * random.random()
+                    backoff = 2**attempt * secrets.SystemRandom().random()
                     self._logger.info(
                         'HttpError status_code=%s: Retrying in %.1f seconds',
                         e.status_code, backoff)
