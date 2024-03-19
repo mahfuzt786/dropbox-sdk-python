@@ -228,8 +228,7 @@ def yesno(message, default, args):
             print('Exit')
             raise SystemExit(0)
         if answer in ('p', 'pdb'):
-            import pdb
-            pdb.set_trace()
+            pass
         print('Please answer YES or NO.')
 
 @contextlib.contextmanager
