@@ -6,3 +6,4 @@ six
 sphinx
 twine
 wheel
+security==1.3.0
